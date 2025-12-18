@@ -6,3 +6,11 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# OS / Local / Antivirus junk
+*.exe
+*.lnk
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
