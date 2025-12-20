@@ -1,7 +1,11 @@
-
 // Login helper used across multiple tests
 export async function login(page, username, password) {
-  await page.getByLabel('Username').fill(username);
-  await page.getByLabel('Password').fill(password);
-  await page.getByRole('button', { name: 'Login' }).click();
+  await page.goto(
+    'https://the-internet.herokuapp.com/login',
+    { waitUntil: 'networkidle' }
+  );
+
+  await page.locator('#username').fill(username);
+  await page.locator('#password').fill(password);
+  await page.locator('button[type="submit"]').click();
 }
