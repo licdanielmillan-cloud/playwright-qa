@@ -3,6 +3,10 @@ import { login } from '../helpers/login';
 
 test('Logout exitoso', async ({ page }) => {
   await login(page, 'tomsmith', 'SuperSecretPassword!');
-  await page.getByRole('link', { name: 'Logout' }).click();
-  await expect(page).toHaveURL(/login/);
+
+  await page.locator('a[href="/logout"]').click();
+
+  await expect(page).toHaveURL(
+    'https://the-internet.herokuapp.com/login'
+  );
 });
